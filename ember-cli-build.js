@@ -15,7 +15,7 @@ module.exports = function(defaults) {
   */
 
   if (!process.env.EMBER_CLI_FASTBOOT) {
-    app.import('bower_components/card/lib/js/card.js');
+    app.import('bower_components/card/dist/card.js');
   }
 
   return app.toTree();

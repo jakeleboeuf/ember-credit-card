@@ -5,9 +5,9 @@
     "ember-cli-shims": "0.1.0",
     "ember-cli-test-loader": "0.2.2",
     "ember-mocha": "0.8.11",
-    "card": "~1.2.1"
+    "card": "~2.0.3"
   },
   "devDependencies": {
-    "card": "~1.2.1"
+    "card": "~2.0.3"
   }
 }
