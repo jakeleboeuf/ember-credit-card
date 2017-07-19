@@ -1,21 +1,29 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
+
+var path = require('path');
+var MergeTrees = require('broccoli-merge-trees');
+var Funnel = require('broccoli-funnel');
 var map = require('broccoli-stew').map;
 
 module.exports = {
   name: 'ember-credit-card',
 
-  treeForVendor(defaultTree) {
-    var browserVendorLib = new Funnel(app.bowerDirectory + '/card/dist/card.js');
+  treeForVendor(vendorTree) {
+    var cardJs = new Funnel(
+      path.join(this.project.root, 'bower_components', '/card/dist/card.js'),
+      { files: ['card.js'] }
+    );
 
-    browserVendorLib = map(browserVendorLib, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
+    cardJs = map(
+      cardJs,
+      content => `if (typeof FastBoot === 'undefined') { ${content} }`
+    );
 
-    return new mergeTrees([defaultTree, browserVendorLib]);
-  }
+    return vendorTree ? new MergeTrees([vendorTree, cardJs]) : cardJs;
+  },
 
   included() {
-    // this file will be loaded in FastBoot but will not be eval'd
-    app.import(app.bowerDirectory + '/card/dist/card.js');
+    this.import('vendor/card.js');
   }
-
 };
