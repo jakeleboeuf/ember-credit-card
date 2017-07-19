@@ -11,7 +11,7 @@ module.exports = {
 
   treeForVendor(vendorTree) {
     var cardJs = new Funnel(
-      path.join(this.project.root, 'bower_components', '/card/dist/card.js'),
+      path.join(this.project.root, 'bower_components', '/card/dist/'),
       { files: ['card.js'] }
     );
 
