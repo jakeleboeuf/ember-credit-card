@@ -1,9 +1,9 @@
 /* jshint node: true */
 'use strict';
+var map = require('broccoli-stew').map;
 
 module.exports = {
   name: 'ember-credit-card',
-  var map = require('broccoli-stew').map;
 
   treeForVendor(defaultTree) {
     var browserVendorLib = new Funnel(app.bowerDirectory + '/card/dist/card.js');
