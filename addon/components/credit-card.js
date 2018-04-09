@@ -35,10 +35,10 @@ export default Ember.Component.extend({
    *
    */
   formSelectors: {
-    numberInput: 'input[name="number"]',
-    expiryInput: 'input[name="expiry"]',
-    cvcInput: 'input[name="cvc"]',
-    nameInput: 'input[name="name"]'
+    numberInput: '.js-number input',
+    expiryInput: '.js-expire input',
+    cvcInput: '.js-cvc input',
+    nameInput: 'js-name input'
   },
 
   values: {
